@@ -13,7 +13,40 @@ arm_controller:
     type: "robot_controllers/GravityCompensation"
     root: "torso_lift_link"
     tip: "gripper_link"
+    autostart: false 
+  velocity:
+    type: "robot_controllers/VelocityController"
+    joints:
+      - shoulder_pan_joint
+      - shoulder_lift_joint
+      - upperarm_roll_joint
+      - elbow_flex_joint
+      - forearm_roll_joint
+      - wrist_flex_joint
+      - wrist_roll_joint
+  weightless_torque:
+    type: "robot_controllers/WeightlessTorqueController"
+    root: "torso_lift_link"
+    tip: "gripper_link"
     autostart: true
+    limits:
+      # The joint limits are 10 degrees less than full motion. The gains ramp up to full motor torque at the limit
+      - name: shoulder_pan_joint
+        lo: -1.431
+        hi: +1.431
+        gain: 193.26
+      - name: shoulder_lift_joint
+        lo: -1.047
+        hi: +1.343
+        gain: 754.929
+      - name: elbow_flex_joint
+        lo: -2.076
+        hi: +2.076
+        gain: 379.18
+      - name: wrist_flex_joint
+        lo: -2.007
+        hi: +2.007
+        gain: 147.25
 
 arm_with_torso_controller:
   follow_joint_trajectory:
@@ -67,6 +100,8 @@ gazebo:
   default_controllers:
     - "arm_controller/follow_joint_trajectory"
     - "arm_controller/gravity_compensation"
+    - "arm_controller/velocity"
+    - "arm_controller/weightless_torque"
     - "arm_with_torso_controller/follow_joint_trajectory"
     - "base_controller"
     - "head_controller/follow_joint_trajectory"
