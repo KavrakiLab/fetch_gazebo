@@ -154,6 +154,7 @@
   <!-- Load the plugin -->
   <gazebo>
     <plugin name="fetch_gazebo_plugin" filename="libfetch_gazebo_plugin.so"/>
+    <self_collide>1</self_collide>
   </gazebo>
 
 </robot>
