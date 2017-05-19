@@ -106,13 +106,17 @@ void FetchGazeboPlugin::Init()
   gazebo::physics::Joint_V joints = model_->GetJoints();
   for (physics::Joint_V::iterator it = joints.begin(); it != joints.end(); ++it)
   {
+
+    std::cout << (*it)->GetName() << std::endl;
     //get effort limit and continuous state from URDF
     boost::shared_ptr<const urdf::Joint> urdf_joint = urdfmodel.getJoint((*it)->GetName());
+    if (urdf_joint->type == urdf::Joint::FIXED)
+      continue;
 
     JointHandlePtr handle(new JointHandle(*it,
                                           urdf_joint->limits->velocity,
                                           urdf_joint->limits->effort,
-                                          (urdf_joint->type == urdf::Joint::CONTINUOUS)));
+                                          urdf_joint->type == urdf::Joint::CONTINUOUS));
     joints_.push_back(handle);
     robot_controllers::JointHandlePtr h(handle);
     controller_manager_.addJointHandle(h);
