@@ -50,8 +50,7 @@ if __name__ == "__main__":
     simplePose.pose.orientation.w = 0.52
 
     simplePose.header.frame_id = 'gripper_link'
-    simplePose.header.stamp = rospy.Time.now()
-    time.sleep(0.1)
+    #simplePose.header.stamp = rospy.Time.now()
     move_group.moveToPose(simplePose,'gripper_link')
 
     
