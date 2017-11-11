@@ -14,7 +14,7 @@
     </include>
     <include>
       <uri>model://demo_cylinder</uri>
-      <pose>1.8 0 0.83 0 0 0</pose>
+      <pose>1.6 0 0.93 0 0 0</pose>
     </include>
   </world>
 </sdf>
