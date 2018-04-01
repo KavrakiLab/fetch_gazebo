@@ -94,7 +94,7 @@ void FetchGazeboPlugin::Load(
 void FetchGazeboPlugin::Init()
 {
   // Init time stuff
-  prevUpdateTime = model_->GetWorld()->GetSimTime();
+  prevUpdateTime = model_->GetWorld()->SimTime();
   last_publish_ = ros::Time(prevUpdateTime.Double());
   urdf::Model urdfmodel;
   if (!urdfmodel.initParam("robot_description"))
@@ -135,7 +135,7 @@ void FetchGazeboPlugin::OnUpdate(
     return;
 
   // Get time and timestep for controllers
-  common::Time currTime = model_->GetWorld()->GetSimTime();
+  common::Time currTime = model_->GetWorld()->SimTime();
   common::Time stepTime = currTime - prevUpdateTime;
   prevUpdateTime = currTime;
   double dt = stepTime.Double();
