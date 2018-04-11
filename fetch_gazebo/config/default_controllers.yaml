@@ -9,6 +9,16 @@ arm_controller:
       - forearm_roll_joint
       - wrist_flex_joint
       - wrist_roll_joint
+  cartesian_twist:
+    type: "robot_controllers/CartesianTwistController"
+    joints:
+      - shoulder_pan_joint
+      - shoulder_lift_joint
+      - upperarm_roll_joint
+      - elbow_flex_joint
+      - forearm_roll_joint
+      - wrist_flex_joint
+      - wrist_roll_joint
   gravity_compensation:
     type: "robot_controllers/GravityCompensation"
     root: "torso_lift_link"
@@ -66,6 +76,7 @@ bellows_controller:
 gazebo:
   default_controllers:
     - "arm_controller/follow_joint_trajectory"
+    - "arm_controller/cartesian_twist"
     - "arm_controller/gravity_compensation"
     - "arm_with_torso_controller/follow_joint_trajectory"
     - "base_controller"
