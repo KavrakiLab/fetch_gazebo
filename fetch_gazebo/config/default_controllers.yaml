@@ -9,21 +9,17 @@ arm_controller:
       - forearm_roll_joint
       - wrist_flex_joint
       - wrist_roll_joint
-  cartesian_twist:
-    type: "robot_controllers/CartesianTwistController"
-    joints:
-      - shoulder_pan_joint
-      - shoulder_lift_joint
-      - upperarm_roll_joint
-      - elbow_flex_joint
-      - forearm_roll_joint
-      - wrist_flex_joint
-      - wrist_roll_joint
+    autostart: true
   gravity_compensation:
     type: "robot_controllers/GravityCompensation"
     root: "torso_lift_link"
     tip: "gripper_link"
     autostart: true
+  cartesian_twist:
+    type: "robot_controllers/CartesianTwistController"
+    root: "torso_lift_link"
+    tip: "wrist_roll_link"
+    #autostart: true
 
 arm_with_torso_controller:
   follow_joint_trajectory:
@@ -72,12 +68,11 @@ bellows_controller:
   controlled_joint: "bellows_joint"
   mimic_scale: 0.5
   autostart: true
-
 gazebo:
   default_controllers:
     - "arm_controller/follow_joint_trajectory"
-    - "arm_controller/cartesian_twist"
     - "arm_controller/gravity_compensation"
+    - "arm_controller/cartesian_twist"
     - "arm_with_torso_controller/follow_joint_trajectory"
     - "base_controller"
     - "head_controller/follow_joint_trajectory"
