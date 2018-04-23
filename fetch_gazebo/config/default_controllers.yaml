@@ -11,14 +11,8 @@ arm_controller:
       - wrist_roll_joint
   cartesian_twist:
     type: "robot_controllers/CartesianTwistController"
-    joints:
-      - shoulder_pan_joint
-      - shoulder_lift_joint
-      - upperarm_roll_joint
-      - elbow_flex_joint
-      - forearm_roll_joint
-      - wrist_flex_joint
-      - wrist_roll_joint
+    root: "torso_lift_link"
+    tip: "shoulder_pan_joint"
   gravity_compensation:
     type: "robot_controllers/GravityCompensation"
     root: "torso_lift_link"
