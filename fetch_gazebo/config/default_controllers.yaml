@@ -12,7 +12,7 @@ arm_controller:
   cartesian_twist:
     type: "robot_controllers/CartesianTwistController"
     root: "torso_lift_link"
-    tip: "shoulder_pan_joint"
+    tip: "wrist_roll_link"
   gravity_compensation:
     type: "robot_controllers/GravityCompensation"
     root: "torso_lift_link"
