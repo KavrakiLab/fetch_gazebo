@@ -30,6 +30,7 @@
   <run_depend>nodelet</run_depend>
   <run_depend>robot_controllers</run_depend>
   <run_depend>robot_controllers_interface</run_depend>
+  <run_depend>augmented_robot_controllers</run_depend>
   <run_depend>rgbd_launch</run_depend>
   <run_depend>trajectory_msgs</run_depend>
   <run_depend>xacro</run_depend>

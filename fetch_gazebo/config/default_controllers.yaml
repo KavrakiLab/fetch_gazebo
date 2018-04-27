@@ -10,7 +10,8 @@ arm_controller:
       - wrist_flex_joint
       - wrist_roll_joint
   cartesian_twist:
-    type: "robot_controllers/CartesianTwistController"
+    type: "augmented_robot_controllers/CartesianTwistAvoidController"
+    #type: "robot_controllers/CartesianTwistController"
     root: "torso_lift_link"
     tip: "wrist_roll_link"
   gravity_compensation:
