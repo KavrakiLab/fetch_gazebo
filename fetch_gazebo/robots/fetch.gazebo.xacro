@@ -171,7 +171,7 @@
         <depthImageCameraInfoTopicName>/head_camera/depth_registered/camera_info</depthImageCameraInfoTopicName>
         <pointCloudTopicName>/head_camera/depth_registered/points</pointCloudTopicName>
         <frameName>head_camera_rgb_optical_frame</frameName>
-        <pointCloudCutoff>0.35</pointCloudCutoff>
+        <pointCloudCutoff>0.0</pointCloudCutoff>
         <pointCloudCutoffMax>4.5</pointCloudCutoffMax>
         <CxPrime>0</CxPrime>
         <Cx>0</Cx>
